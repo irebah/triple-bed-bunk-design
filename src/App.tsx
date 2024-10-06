@@ -5,7 +5,7 @@ const App = () => {
     <main className="flex justify-center items-center w-screen h-screen">
       <section
         id="canvas-container"
-        className="w-[800px] h-[800px] border-2 border-black"
+        className="w-[1000px] h-[1000px] border-2 border-black"
       >
         <BedBunkCanvas />
       </section>

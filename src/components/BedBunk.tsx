@@ -1,13 +1,19 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import TimberA from "./TimberA";
+// import { Suspense } from "react";
+
+import BedFrame from "./BedFrame";
+import { BedBunkProvider } from "../context/BedBunkContext";
+import MainPoles from "./MainPoles";
 
 const BedBunk = () => {
   return (
-    <group>
-      <TimberA position={[-0.8, 1.4, 0.4]} scale={1} />
-    </group>
+    <>
+      <BedFrame />;
+      <BedFrame level={0.8} />;
+      <BedFrame level={1.6} />;
+      <MainPoles />
+    </>
   );
 };
 
@@ -16,14 +22,17 @@ const BedBunkCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      camera={{ position: [20, 3, 5], fov: 25 }}
+      camera={{ position: [1, 2, 3.5], fov: 50 }}
     >
-      <hemisphereLight intensity={0.15} groundColor="black" />
-      <pointLight intensity={1} />
-      <Suspense fallback={<div>loading</div>}>
-        <OrbitControls />
+      <ambientLight intensity={0.5} color="white" />
+      <pointLight intensity={1} color="white" position={[10, 10, 10]} />
+      {/* <Suspense fallback={<div>loading</div>}> */}
+      <OrbitControls />
+      <axesHelper />
+      <BedBunkProvider>
         <BedBunk />
-      </Suspense>
+      </BedBunkProvider>
+      {/* </Suspense> */}
     </Canvas>
   );
 };
