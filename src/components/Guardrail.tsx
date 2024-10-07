@@ -21,7 +21,7 @@ const Guardrail = ({
   const [widthI, heightI, depthI] = timberUtils.getDimensionsByType("I");
   const [widthJ, heightJ, depthJ] = timberUtils.getDimensionsByType("J");
   const [widthK] = timberUtils.getDimensionsByType("K");
-  const [widthN] = timberUtils.getDimensionsByType("N");
+  const [widthN, , depthN] = timberUtils.getDimensionsByType("N");
 
   return (
     <group>
@@ -34,14 +34,14 @@ const Guardrail = ({
         ]}
         rotation={[0, Math.PI / 2, 0]}
       >
-        <Timber name={`I-${level}-01`} position={[0, 0, widthA + depthI]} />
+        <Timber name={`I-${level}-01`} position={[0, 0, 0]} />
         {shortBottom ? (
           <Timber
             name={`N-${level}-01`}
-            position={[-(widthI - widthN) / 2, 0, 0]}
+            position={[(widthI - widthN) / 2, 0, widthA + depthN]}
           />
         ) : (
-          <Timber name={`I-${level}-02`} />
+          <Timber name={`I-${level}-02`} position={[0, 0, widthA + depthI]} />
         )}
       </group>
 

@@ -2,7 +2,9 @@ import Timber from "./Timber";
 import timberUtils from "../utils/timber";
 
 const StairLevel3 = () => {
-  const [, heightC] = timberUtils.getDimensionsByType("C");
+  const [widthA] = timberUtils.getDimensionsByType("A");
+  const [widthB] = timberUtils.getDimensionsByType("B");
+  const [, heightC, depthC] = timberUtils.getDimensionsByType("C");
   const [widthG, heightG, depthG] = timberUtils.getDimensionsByType("G");
   const [widthH, heightH, depthH] = timberUtils.getDimensionsByType("H");
   const [widthM] = timberUtils.getDimensionsByType("M");
@@ -12,16 +14,17 @@ const StairLevel3 = () => {
 
   return (
     <group
-      position={[-heightH / 2, widthH / 2, depthH / 2 + heightC]}
+      position={[
+        -heightH / 2 + widthA + 2 * depthC + heightH,
+        widthH / 2,
+        -widthG + widthB + heightC - (3 * depthH) / 2,
+      ]}
       rotation={[0, 0, Math.PI / 2]}
     >
       {/* support */}
       <group position={[0, 0, 0]}>
-        <Timber name="H-0-1" position={[0, 0, 0]} />
-        <Timber
-          name="M-0-2"
-          position={[(widthM - widthH) / 2, 0, depthH + widthG]}
-        />
+        <Timber name="H-0-1" position={[0, 0, depthH + widthG]} />
+        <Timber name="M-0-2" position={[(widthM - widthH) / 2, 0, 0]} />
       </group>
 
       {/* stairs */}
