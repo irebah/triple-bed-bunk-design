@@ -2,6 +2,8 @@
 
 This project showcases a 3D model of a triple bed bunk design using React Three Fiber, Vite, and TypeScript. The application provides an interactive experience where users can view and explore the bunk bed design in a 3D space.
 
+You can view the live version of the project at [https://irebah.github.io/triple-bed-bunk-design](https://irebah.github.io/triple-bed-bunk-design).
+
 ## Table of Contents
 
 - [Features](#features)
