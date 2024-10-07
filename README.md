@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Triple Bed Bunk Design Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases a 3D model of a triple bed bunk design using React Three Fiber, Vite, and TypeScript. The application provides an interactive experience where users can view and explore the bunk bed design in a 3D space.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Interactive 3D visualization of a triple bed bunk
+- When clicking on a specific timber all the timbers of the same size (width, height and depth) will highlight
+- Smooth rendering and animations with React Three Fiber
+- Lightweight and fast development environment using Vite
+- TypeScript for type safety and improved developer experience
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React Three Fiber**: A React renderer for Three.js, enabling easy 3D graphics in React applications.
+- **Vite**: A fast build tool that provides an optimal development environment.
+- **TypeScript**: A superset of JavaScript that offers static typing for better code quality.
+- **pnpm**: A fast, disk space-efficient package manager.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To set up the project locally, follow these steps:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/irebah/triple-bed-bunk-design.git
+   cd triple-bed-bunk-design
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+    pnpm dev
+   ```
+
+4. **Open your browser: Navigate to http://localhost:5173 to view the application.**
+
+## Usage
+
+Use your mouse or touch gestures to rotate, zoom, and pan the 3D model of the triple bed bunk.
+
+Explore different angles and perspectives to better understand the design.
+
+Enjoy!!
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE file](./LICENSE.md) for details.
