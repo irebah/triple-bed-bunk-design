@@ -1,4 +1,4 @@
-import { MeshProps } from "@react-three/fiber";
+import { MeshProps, ThreeEvent } from "@react-three/fiber";
 
 import { useTextures } from "../textures";
 import timberUtils from "../utils/timber";
@@ -21,7 +21,8 @@ const Timber = ({ name, ...props }: Props) => {
     return activeTimberType === timberType;
   };
 
-  const onTimberClicked = () => {
+  const onTimberClicked = (e: ThreeEvent<MouseEvent>) => {
+    e.stopPropagation();
     dispatch({
       type: SELECT_ACTIVE_TIMBER,
       payload: name,
