@@ -6,17 +6,29 @@ interface Props {
 }
 
 const BedSlats = ({ level = 0 }: Props) => {
-  const [widthA, , depthA] = timberUtils.getDimensionsByType("A");
+  const [, , depthA] = timberUtils.getDimensionsByType("A");
+  const [, , depthB] = timberUtils.getDimensionsByType("B");
 
-  const numberSlats = 10;
+  const [widthD, heightD, depthD] = timberUtils.getDimensionsByType("D");
+  const [, heightE] = timberUtils.getDimensionsByType("E");
+
+  const numberSlats = 9;
+  const slatGap = 0.2;
 
   return (
-    <group position={[depthA, -0.3, 0]}>
+    <group
+      position={[
+        heightD / 2 + depthB - 0.09,
+        level + depthD / 2 + heightE,
+        widthD / 2 + depthA,
+      ]}
+      rotation={[Math.PI / 2, 0, Math.PI / 2]}
+    >
       {[...Array(numberSlats).keys()].map((index) => (
         <Timber
           key={index}
           name={`D-${level}-${index}`}
-          position={[0, -(widthA / numberSlats) * (index - 1), 0]}
+          position={[0, -slatGap * (index + 1), 0]}
         />
       ))}
     </group>

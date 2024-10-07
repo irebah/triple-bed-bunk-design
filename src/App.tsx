@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import { BedBunkProvider } from "./context/BedBunkContext";
 import BedBunk from "./components/BedBunk";
 
@@ -10,20 +10,16 @@ const App = () => {
         id="canvas-container"
         className="w-[1200px] h-[1200px] border-2 border-black"
       >
-        <Canvas
-          frameloop="demand"
-          shadows
-          camera={{ position: [1, 2, 3.5], fov: 50 }}
-        >
-          <ambientLight intensity={0.5} color="white" />
-          <pointLight intensity={1} color="white" position={[10, 10, 10]} />
-          {/* <Suspense fallback={<div>loading</div>}> */}
+        <Canvas frameloop="demand" camera={{ position: [-1, 1, 2.5], fov: 50 }}>
+          <color attach="background" args={["#f0f0f0"]} />
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[5, 10, 7]} intensity={1} castShadow />
           <OrbitControls />
-          <axesHelper />
           <BedBunkProvider>
-            <BedBunk />
+            <Center>
+              <BedBunk />
+            </Center>
           </BedBunkProvider>
-          {/* </Suspense> */}
         </Canvas>
       </section>
     </main>

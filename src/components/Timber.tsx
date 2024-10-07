@@ -29,7 +29,7 @@ const Timber = ({ name, ...props }: Props) => {
   };
 
   return (
-    <mesh {...props} onClick={onTimberClicked}>
+    <mesh castShadow receiveShadow {...props} onClick={onTimberClicked}>
       <boxGeometry args={timberUtils.getDimensionsByName(name)} />
       {isActive() && <meshStandardMaterial color="red" />}
       {!isActive() && <meshStandardMaterial map={wood} />}

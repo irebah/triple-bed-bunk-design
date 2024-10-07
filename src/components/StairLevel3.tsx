@@ -7,7 +7,7 @@ const StairLevel3 = () => {
   const [widthH, heightH, depthH] = timberUtils.getDimensionsByType("H");
 
   const numberStairs = 6;
-  const spaceStairs = 0.25;
+  const stairsGap = 0.25;
 
   return (
     <group
@@ -33,7 +33,7 @@ const StairLevel3 = () => {
           <Timber
             key={index}
             name={`G-0-${index}`}
-            position={[0, 0, spaceStairs * index]}
+            position={[0, 0, stairsGap * index]}
           />
         ))}
       </group>
