@@ -7,8 +7,8 @@ const BedBunk = () => {
   return (
     <>
       <BedFrame />
-      <BedFrame level={0.8} />
-      <BedFrame level={1.6} />
+      <BedFrame level={0.8} shortGuardrail />
+      <BedFrame level={1.6} fullGuardrail />
       <MainPoles />
       <StairLevel2 />
       <StairLevel3 />

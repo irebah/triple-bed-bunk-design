@@ -2,12 +2,12 @@ import Timber from "./Timber";
 import timberUtils from "../utils/timber";
 
 const StairLevel3 = () => {
-  const [, heightB] = timberUtils.getDimensionsByType("B");
   const [, heightC] = timberUtils.getDimensionsByType("C");
-  const [widthG, , depthG] = timberUtils.getDimensionsByType("G");
+  const [widthG, heightG, depthG] = timberUtils.getDimensionsByType("G");
   const [widthH, heightH, depthH] = timberUtils.getDimensionsByType("H");
 
   const numberStairs = 6;
+  const spaceStairs = 0.25;
 
   return (
     <group
@@ -23,7 +23,7 @@ const StairLevel3 = () => {
       {/* stairs */}
       <group
         position={[
-          -widthH / 2 + depthG / 2 + widthH / numberStairs + heightB,
+          -widthH / 2 + widthG - heightG + depthG,
           0,
           widthG / 2 + depthH / 2,
         ]}
@@ -33,7 +33,7 @@ const StairLevel3 = () => {
           <Timber
             key={index}
             name={`G-0-${index}`}
-            position={[0, 0, (widthH / numberStairs) * (index - 1)]}
+            position={[0, 0, spaceStairs * index]}
           />
         ))}
       </group>
