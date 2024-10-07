@@ -4,14 +4,16 @@ import { GUARDRAIL_HEIGHT } from "../constants";
 
 interface Props {
   level?: number;
-  fullGuardrail?: boolean;
-  shortGuardrail?: boolean;
+  sideGuardrail?: boolean;
+  shortSide?: boolean;
+  shortBottom?: boolean;
 }
 
 const Guardrail = ({
   level = 0,
-  fullGuardrail = false,
-  shortGuardrail = false,
+  sideGuardrail = false,
+  shortSide = false,
+  shortBottom = false,
 }: Props) => {
   const [widthA, heightA] = timberUtils.getDimensionsByType("A");
   const [widthB, heightB] = timberUtils.getDimensionsByType("B");
@@ -19,10 +21,11 @@ const Guardrail = ({
   const [widthI, heightI, depthI] = timberUtils.getDimensionsByType("I");
   const [widthJ, heightJ, depthJ] = timberUtils.getDimensionsByType("J");
   const [widthK] = timberUtils.getDimensionsByType("K");
+  const [widthN] = timberUtils.getDimensionsByType("N");
 
   return (
     <group>
-      {/* guardrail top and bottom */}
+      {/* top and bottom guardrail*/}
       <group
         position={[
           depthI / 2,
@@ -31,12 +34,19 @@ const Guardrail = ({
         ]}
         rotation={[0, Math.PI / 2, 0]}
       >
-        <Timber name={`I-${level}-01`} />
-        <Timber name={`I-${level}-02`} position={[0, 0, widthA + depthI]} />
+        <Timber name={`I-${level}-01`} position={[0, 0, widthA + depthI]} />
+        {shortBottom ? (
+          <Timber
+            name={`N-${level}-01`}
+            position={[-(widthI - widthN) / 2, 0, 0]}
+          />
+        ) : (
+          <Timber name={`I-${level}-02`} />
+        )}
       </group>
 
-      {/* guardrail side (level 2 and 3 only) */}
-      {(shortGuardrail || fullGuardrail) && (
+      {/* side guardrail */}
+      {sideGuardrail && (
         <group
           position={[
             depthC,
@@ -44,13 +54,12 @@ const Guardrail = ({
             2 * heightC + widthB - depthJ / 2,
           ]}
         >
-          {shortGuardrail && (
+          {shortSide ? (
             <Timber
               name={`K-${level}-01`}
               position={[widthK / 2 + widthA - widthK, 0, 0]}
             />
-          )}
-          {fullGuardrail && (
+          ) : (
             <Timber name={`J-${level}-01`} position={[widthJ / 2, 0, 0]} />
           )}
         </group>

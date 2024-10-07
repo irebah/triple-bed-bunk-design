@@ -5,14 +5,16 @@ import Guardrail from "./GuardRail";
 
 interface Props {
   level?: number;
-  fullGuardrail?: boolean;
-  shortGuardrail?: boolean;
+  sideGuardrail?: boolean;
+  shortSide?: boolean;
+  shortBottom?: boolean;
 }
 
 const BedFrame = ({
   level = 0,
-  fullGuardrail = false,
-  shortGuardrail = false,
+  sideGuardrail = false,
+  shortSide = false,
+  shortBottom = false,
 }: Props) => {
   const [widthA, heightA, depthA] = timberUtils.getDimensionsByType("A");
   const [widthB, heightB, depthB] = timberUtils.getDimensionsByType("B");
@@ -59,8 +61,9 @@ const BedFrame = ({
 
       <Guardrail
         level={level}
-        shortGuardrail={shortGuardrail}
-        fullGuardrail={fullGuardrail}
+        sideGuardrail={sideGuardrail}
+        shortSide={shortSide}
+        shortBottom={shortBottom}
       />
     </group>
   );
