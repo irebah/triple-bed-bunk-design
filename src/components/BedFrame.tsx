@@ -1,7 +1,7 @@
 import Timber from "./Timber";
 import timberUtils from "../utils/timber";
 import BedSlats from "./BedSlats";
-import Guardrail from "./GuardRail";
+import Guardrail from "./Guardrail";
 
 interface Props {
   level?: number;
