@@ -55,10 +55,7 @@ const Guardrail = ({
           ]}
         >
           {shortSide ? (
-            <Timber
-              name={`K-${level}-01`}
-              position={[widthK / 2 + widthA - widthK, 0, 0]}
-            />
+            <Timber name={`K-${level}-01`} position={[widthK / 2, 0, 0]} />
           ) : (
             <Timber name={`J-${level}-01`} position={[widthJ / 2, 0, 0]} />
           )}

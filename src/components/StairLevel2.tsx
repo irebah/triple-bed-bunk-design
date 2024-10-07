@@ -2,11 +2,12 @@ import Timber from "./Timber";
 import timberUtils from "../utils/timber";
 
 const StairLevel2 = () => {
+  const [widthA] = timberUtils.getDimensionsByType("A");
   const [widthB] = timberUtils.getDimensionsByType("B");
   const [, heightC, depthC] = timberUtils.getDimensionsByType("C");
   const [widthF, heightF, depthF] = timberUtils.getDimensionsByType("F");
   const [widthG, heightG, depthG] = timberUtils.getDimensionsByType("G");
-  const [widthL] = timberUtils.getDimensionsByType("L");
+  const [widthL, , depthL] = timberUtils.getDimensionsByType("L");
 
   const numberStairs = 3;
   const stairsGap = 0.25;
@@ -14,7 +15,7 @@ const StairLevel2 = () => {
   return (
     <group
       position={[
-        depthF / 2 + depthC,
+        -depthF / 2 + depthC + widthA - widthG - depthL,
         widthF / 2,
         heightC * 2 + widthB + heightF / 2,
       ]}
@@ -22,11 +23,8 @@ const StairLevel2 = () => {
     >
       {/* support */}
       <group position={[0, 0, 0]}>
-        <Timber name="F-0-1" position={[0, 0, 0]} />
-        <Timber
-          name="L-0-2"
-          position={[(widthL - widthF) / 2, 0, widthG + depthF]}
-        />
+        <Timber name="F-0-1" position={[0, 0, widthG + depthF]} />
+        <Timber name="L-0-2" position={[(widthL - widthF) / 2, 0, 0]} />
       </group>
 
       {/* stairs */}
